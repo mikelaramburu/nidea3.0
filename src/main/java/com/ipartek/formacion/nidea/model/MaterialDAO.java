@@ -10,6 +10,27 @@ import java.util.ArrayList;
 import com.ipartek.formacion.nidea.pojo.Material;
 
 public class MaterialDAO {
+	private static MaterialDAO INSTANCE = null;
+
+	// Private constructor para que NO se pueda hacer new y crear N instancias
+	private MaterialDAO() {
+
+	}
+
+	// creador synchronized para protegerse de posibles problemas multi-hilo
+	public synchronized static MaterialDAO createInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new MaterialDAO();
+		}
+		return INSTANCE;
+	}
+
+	public static MaterialDAO getInstance() {
+		if (INSTANCE == null) {
+			createInstance();
+		}
+		return INSTANCE;
+	}
 
 	/**
 	 * Recupera todos los materiales de la BBDD ordenados por id descendente
@@ -26,7 +47,7 @@ public class MaterialDAO {
 		try {
 
 			Class.forName("com.mysql.jdbc.Driver");
-			final String URL = "jdbc:mysql://localhost/spoty?user=root&password=";
+			final String URL = "jdbc:mysql://192.168.0.42/spoty?user=alumno&password=alumno";
 			con = DriverManager.getConnection(URL);
 			String sql = "SELECT id, nombre, precio FROM material;";
 
