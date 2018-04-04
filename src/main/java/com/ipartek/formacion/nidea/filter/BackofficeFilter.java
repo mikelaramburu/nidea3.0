@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  * Servlet Filter implementation class BackofficeFilter
  */
 @WebFilter(dispatcherTypes = { DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE,
-		DispatcherType.ERROR }, description = "Dejar pasar solo a los usuarios logeados", urlPatterns = {
+		DispatcherType.ERROR }, description = "Dejar pasar solo a los usuario Logeados", urlPatterns = {
 				"/backoffice/*" })
 public class BackofficeFilter implements Filter {
 

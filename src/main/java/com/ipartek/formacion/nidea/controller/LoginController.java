@@ -25,7 +25,8 @@ public class LoginController extends HttpServlet {
 
 	private static final String USER = "admin";
 	private static final String PASS = "admin";
-	private static final int SESSION_EXPIRATION = 60 * 1; // 1 minuto
+
+	private static final int SESSION_EXPIRATION = 60 * 1; // 1 min
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -52,22 +53,24 @@ public class LoginController extends HttpServlet {
 
 			if (USER.equalsIgnoreCase(usuario) && PASS.equals(password)) {
 
-				// enviar como atributo la lista de materiales
-				MaterialDAO dao = MaterialDAO.getInstance();
-				request.setAttribute("materiales", dao.getAll());
-
-				// guardar usuario sesion
+				// guardar usuario en session
 				HttpSession session = request.getSession();
 				session.setAttribute("usuario", usuario);
 
-				// tiempo de expiracion, TAMBIEN SE PUEDE CONFIGURAR EN WEB.XML
-				/**
+				/*
+				 * Tiempo expiracion session, tambien se puede configurar web.xml un valor
 				 * negativo, indica que nunca expira
+				 * 
+				 * <session-config> <session-timeout>-1</session-timeout> </session-config>
 				 * 
 				 */
 				session.setMaxInactiveInterval(SESSION_EXPIRATION);
 
+				// enviar como atributo la lista de materiales
+				MaterialDAO dao = MaterialDAO.getInstance();
+				request.setAttribute("materiales", dao.getAll());
 				view = "backoffice/index.jsp";
+
 				alert = new Alert("Ongi Etorri", Alert.TIPO_PRIMARY);
 			} else {
 
