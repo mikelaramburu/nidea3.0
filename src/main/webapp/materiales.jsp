@@ -1,22 +1,44 @@
 <%@include file="/templates/head.jsp" %>
 <%@include file="/templates/navbar.jsp" %>
 <%@include file="/templates/alert.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<h1>Materiales</h1>
+<h1>MATERIALES  PUBLICOS</h1>
 
 <ol>
 	<c:forEach items="${materiales}" var="material">
-		<c:set var="clase" value="" />	
-		<c:choose>
-			<c:when test="${material.precio > 25}">
-				<c:set var="clase" value="text-danger" />
-			</c:when>
-			<c:when test="${material.precio > 6}">
-				<c:set var="clase" value="text-primary" />
-			</c:when>
-		</c:choose>	
-		<li>${material.nombre} - <span class="${clase}">${material.precio} &euro;</span></li>	
+	 	<c:if test = "${material.precio > 6.0 && material.precio < 25.0}">
+			<li>${material.nombre} - <span class="text-primary">${material.precio} &euro;</span> </li>
+	 	</c:if>
+		<c:if test = "${material.precio <= 6.0}">
+		 <li>${material.nombre} - ${material.precio} &euro; </li>
+		</c:if>
+		<c:if test = "${material.precio >= 25.0}">
+		 <li>${material.nombre} - <span class="text-danger">${material.precio} &euro;</span> </li>
+		</c:if>
+		 
 	</c:forEach>
+	
 </ol>
 
-<jsp:include page="/templates/footer.jsp"></jsp:include>
+<ol>
+	<c:forEach items="${materiales}" var="material">
+	  <c:choose>
+         
+         <c:when test = "${material.precio > 6.0 && material.precio < 25.0}">
+			<li>${material.nombre} - <span class="text-primary">${material.precio} &euro;</span> </li>
+           
+         </c:when>
+         <c:when test = "${material.precio <= 6.0}">
+			<li>${material.nombre} - ${material.precio} &euro; </li>
+			</c:when>
+			      <c:when test = "${material.precio >= 25.0}">
+		 <li>${material.nombre} - <span class="text-danger">${material.precio} &euro;</span> </li>
+			</c:when>
+         </c:choose>
+		 
+	</c:forEach>
+	
+</ol>
+
+<jsp:include page="templates/footer.jsp"></jsp:include>
