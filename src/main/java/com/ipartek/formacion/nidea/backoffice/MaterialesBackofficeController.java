@@ -98,6 +98,8 @@ public class MaterialesBackofficeController extends HttpServlet {
 	private void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		alert = null;
+
 		try {
 
 			recogerParametros(request);
@@ -132,7 +134,18 @@ public class MaterialesBackofficeController extends HttpServlet {
 	}
 
 	private void guardar(HttpServletRequest request) {
-		// TODO Auto-generated method stub
+		Material material = new Material();
+
+		if (id == -1) {
+			alert = new Alert("Creado nuevo material", Alert.TIPO_PRIMARY);
+			material.setNombre("Nuevo");
+		} else {
+			alert = new Alert("Material Modificado id " + id, Alert.TIPO_PRIMARY);
+			material.setId(id);
+			material.setNombre("Modificado");
+		}
+		request.setAttribute("material", material);
+		dispatcher = request.getRequestDispatcher(VIEW_FORM);
 
 	}
 
@@ -146,7 +159,12 @@ public class MaterialesBackofficeController extends HttpServlet {
 	}
 
 	private void eliminar(HttpServletRequest request) {
-		// TODO Auto-generated method stub
+		if (dao.delete(id)) {
+			alert = new Alert("Material Eliminado id " + id, Alert.TIPO_PRIMARY);
+		} else {
+			alert = new Alert("Error Eliminando, sentimos las molestias ", Alert.TIPO_WARNING);
+		}
+		listar(request);
 
 	}
 
@@ -161,6 +179,7 @@ public class MaterialesBackofficeController extends HttpServlet {
 			alert = new Alert("Nuevo Producto", Alert.TIPO_WARNING);
 		}
 		request.setAttribute("material", material);
+		request.setAttribute("material.id", id);
 		dispatcher = request.getRequestDispatcher(VIEW_FORM);
 	}
 
@@ -169,6 +188,7 @@ public class MaterialesBackofficeController extends HttpServlet {
 		ArrayList<Material> materiales = new ArrayList<Material>();
 		materiales = dao.getAll();
 		request.setAttribute("materiales", materiales);
+
 		dispatcher = request.getRequestDispatcher(VIEW_INDEX);
 
 	}
@@ -182,20 +202,28 @@ public class MaterialesBackofficeController extends HttpServlet {
 
 		if (request.getParameter("op") != null) {
 			op = Integer.parseInt(request.getParameter("op"));
+		} else {
+			op = 0;
 		}
 
 		search = (request.getParameter("search") != null) ? request.getParameter("search") : "";
 
 		if (request.getParameter("id") != null) {
 			id = Integer.parseInt(request.getParameter("id"));
+		} else {
+			id = -1;
 		}
 
 		if (request.getParameter("nombre") != null) {
 			nombre = request.getParameter("nombre");
+		} else {
+			nombre = "";
 		}
 
 		if (request.getParameter("precio") != null) {
 			precio = Float.parseFloat(request.getParameter("precio"));
+		} else {
+			precio = 0;
 		}
 
 	}
