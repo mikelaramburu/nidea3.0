@@ -6,4 +6,4 @@
 
 <a href="backoffice/materiales">Materiales</a>
 
-<jsp:include page="/templates/footer.jsp"></jsp:include>include>
+<jsp:include page="/templates/footer.jsp"></jsp:include>

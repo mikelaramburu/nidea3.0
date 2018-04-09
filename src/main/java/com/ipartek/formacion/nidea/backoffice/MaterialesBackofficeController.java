@@ -134,16 +134,18 @@ public class MaterialesBackofficeController extends HttpServlet {
 	}
 
 	private void guardar(HttpServletRequest request) {
+		// Importante que los input tengan el atributo name para recoger su valor
 		Material material = new Material();
+		material.setId(id);
+		material.setNombre(nombre);
+		material.setPrecio(precio);
 
-		if (id == -1) {
-			alert = new Alert("Creado nuevo material", Alert.TIPO_PRIMARY);
-			material.setNombre("Nuevo");
+		if (dao.save(material)) {
+			alert = new Alert("Material guardado", Alert.TIPO_PRIMARY);
 		} else {
-			alert = new Alert("Material Modificado id " + id, Alert.TIPO_PRIMARY);
-			material.setId(id);
-			material.setNombre("Modificado");
+			alert = new Alert("Lo sentimos pero no hemos podido guardar el material", Alert.TIPO_WARNING);
 		}
+
 		request.setAttribute("material", material);
 		dispatcher = request.getRequestDispatcher(VIEW_FORM);
 
@@ -173,13 +175,13 @@ public class MaterialesBackofficeController extends HttpServlet {
 		Material material = new Material();
 		if (id > -1) {
 			// TODO recuperar de la BBDD que es un material que existe
-			alert = new Alert("Mostramos Detall id:" + id, Alert.TIPO_WARNING);
+			material = dao.getById(id);
 
 		} else {
 			alert = new Alert("Nuevo Producto", Alert.TIPO_WARNING);
 		}
 		request.setAttribute("material", material);
-		request.setAttribute("material.id", id);
+
 		dispatcher = request.getRequestDispatcher(VIEW_FORM);
 	}
 

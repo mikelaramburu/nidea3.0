@@ -11,7 +11,13 @@
 	<input type="text" name="search" required placeholder="Nombre del Material">
 	<input type="submit" value="Buscar">	
 	<input type="hidden" name="op" value= "<%=MaterialesBackofficeController.OP_BUSQUEDA%>">
+	
+	<div class="col-md-6">
+		<a class="btn btn-outline-primary" href="backoffice/materiales?op=<%=MaterialesBackofficeController.OP_MOSTRAR_FORMULARIO%>">Crear Nuevo</a>
+	</div> 
 </form>
+
+
 
 <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
