@@ -11,6 +11,11 @@ public class VehiculoElectrico extends Vehiculos {
 		// TODO Auto-generated constructor stub
 	}
 
+	public VehiculoElectrico(float potencia) {
+		this(); // Al sobrecargar cambiar el super por el this
+		this.potencia = potencia;
+	}
+
 	public float getPotencia() {
 		return potencia;
 	}
