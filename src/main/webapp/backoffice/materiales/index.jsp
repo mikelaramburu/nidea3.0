@@ -19,7 +19,7 @@
 
 
 
-<table id="example" class="table table-striped table-bordered" style="width:100%">
+<table id="example" class="tabla table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>ID</th>

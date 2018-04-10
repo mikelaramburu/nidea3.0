@@ -45,6 +45,7 @@ public interface Persistible<P> {
 	public boolean delete(int id);
 
 	public P mapper(ResultSet rs) throws SQLException;
+
 	/**
 	 * Nos Mapea un Resultado de la BBDD a un Pojo
 	 * 
@@ -52,5 +53,7 @@ public interface Persistible<P> {
 	 *            ResultSet 1 registro de consulta
 	 * @return Pojo con los valores del ResultSet o null si no hay valores
 	 */
+
+	public boolean busqueda(String nombre);
 
 }

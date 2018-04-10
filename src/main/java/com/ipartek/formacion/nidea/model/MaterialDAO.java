@@ -39,7 +39,7 @@ public class MaterialDAO implements Persistible<Material> {
 	public ArrayList<Material> getAll() {
 
 		ArrayList<Material> lista = new ArrayList<Material>();
-		String sql = "SELECT `id`, `nombre`, `precio` FROM `material` ORDER BY `id` DESC LIMIT 500";
+		String sql = "SELECT `id`, `nombre`, `precio` FROM `material` WHERE `nombre` LIKE ? ORDER BY `id` DESC LIMIT 500";
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pst = con.prepareStatement(sql);
@@ -179,6 +179,22 @@ public class MaterialDAO implements Persistible<Material> {
 			m.setPrecio(rs.getFloat("precio"));
 		}
 		return m;
+	}
+
+	public boolean busqueda(String nombre) {
+		// TODO Auto-generated method stub
+		boolean resul = false;
+		String sql = "SELECT `id`, `nombre`, `precio` FROM `material` WHERE `nombre` LIKE \'?\' ORDER BY `id` DESC LIMIT 500";
+		try (Connection con = ConnectionManager.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
+			pst.setString(1, nombre);
+			int affectedRows = pst.executeUpdate();
+			if (affectedRows == 1) {
+				resul = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return resul;
 	}
 
 }

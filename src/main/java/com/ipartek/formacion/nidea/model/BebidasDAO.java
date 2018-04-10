@@ -37,4 +37,10 @@ public class BebidasDAO implements Persistible<Bebida> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public boolean busqueda(String nombre) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

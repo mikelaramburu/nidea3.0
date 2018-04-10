@@ -136,26 +136,56 @@ public class MaterialesBackofficeController extends HttpServlet {
 	private void guardar(HttpServletRequest request) {
 		// Importante que los input tengan el atributo name para recoger su valor
 		Material material = new Material();
+
 		material.setId(id);
 		material.setNombre(nombre);
+		String precio1 = String.valueOf(precio);
+
 		material.setPrecio(precio);
+		if (!dao.busqueda(nombre)) {
+			if (nombre != "" && precio > 0) {
+				if (dao.save(material)) {// Llamamos al save de materialDAo
+					alert = new Alert("Material guardado", Alert.TIPO_PRIMARY);
 
-		if (dao.save(material)) {
-			alert = new Alert("Material guardado", Alert.TIPO_PRIMARY);
+				} else {
+					// alert = new Alert("Lo sentimos pero no hemos podido guardar el material",
+					// Alert.TIPO_PRIMARY);
+					/*
+					 * alert = new Alert(
+					 * "Lo sentimos pero el valor del nombre del material que intentas introducir es incorrecto"
+					 * , Alert.TIPO_PRIMARY);
+					 */
+					alert = new Alert(
+							"El campo nombre con un nombre válido. Por favor, compruebe que no exista o que su longitud no sea excesiva.",
+							Alert.TIPO_WARNING);
+				}
+				request.setAttribute("material", material);
+				dispatcher = request.getRequestDispatcher(VIEW_FORM);
+			} else {
+
+				if (nombre == "") {
+					alert = new Alert(
+							"El campo nombre con un nombre válido. Por favor, compruebe que no exista o que su longitud no sea excesiva.",
+							Alert.TIPO_WARNING);
+					request.setAttribute("material", material);
+					dispatcher = request.getRequestDispatcher(VIEW_FORM);
+				} else if (precio < 0 || precio1.equals("")) {
+					alert = new Alert("Por favor introduzca un precio con valor positivo.", Alert.TIPO_DANGER);
+					request.setAttribute("material", material);
+					dispatcher = request.getRequestDispatcher(VIEW_FORM);
+				}
+			}
 		} else {
-			alert = new Alert("Lo sentimos pero no hemos podido guardar el material", Alert.TIPO_WARNING);
+			alert = new Alert("Lo sentimos pero el material ya existe", Alert.TIPO_DANGER);
+			request.setAttribute("material", material);
+			dispatcher = request.getRequestDispatcher(VIEW_FORM);
 		}
-
-		request.setAttribute("material", material);
-		dispatcher = request.getRequestDispatcher(VIEW_FORM);
 
 	}
 
 	private void buscar(HttpServletRequest request) {
 		alert = new Alert("Busqueda para: " + search, Alert.TIPO_PRIMARY);
-		ArrayList<Material> materiales = new ArrayList<Material>();
-		materiales = dao.getAll();
-		request.setAttribute("materiales", materiales);
+		request.setAttribute("materiales", dao.getAll());
 		dispatcher = request.getRequestDispatcher(VIEW_INDEX);
 
 	}
