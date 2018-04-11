@@ -10,6 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.ValidatorFactory;
+import javax.xml.validation.Validator;
 
 import com.ipartek.formacion.nidea.model.MaterialDAO;
 import com.ipartek.formacion.nidea.pojo.Alert;
@@ -29,6 +31,9 @@ public class MaterialesBackofficeController extends HttpServlet {
 	public static final int OP_BUSQUEDA = 14;
 	public static final int OP_ELIMINAR = 13;
 	public static final int OP_GUARDAR = 2;
+
+	ValidatorFactory factory;
+	Validator validator;
 
 	private RequestDispatcher dispatcher;
 	private Alert alert;

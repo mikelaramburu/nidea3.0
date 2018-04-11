@@ -10,6 +10,8 @@ public class EjercicioVehiculos {
 		 * System.out.println(rayoMcQueen.toString());
 		 */
 
+		Vehiculos.dimeMatricula();
+
 		System.out.println("******************************************************************");
 
 		VehiculoElectrico tesla = new VehiculoElectrico();

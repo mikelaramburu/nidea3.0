@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.ipartek.formacion.nidea.ejemplos.Ejercicio_ObjetosGraficos.Rectangulo" 
+    project="nidea" 
+    file="/nidea/src/main/java/com/ipartek/formacion/nidea/ejemplos/Ejercicio_ObjetosGraficos/Rectangulo.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="280" x="119" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.ipartek.formacion.nidea.ejemplos.Ejercicio_ObjetosGraficos.ObjetoGrafico" 
+    project="nidea" 
+    file="/nidea/src/main/java/com/ipartek/formacion/nidea/ejemplos/Ejercicio_ObjetosGraficos/ObjetoGrafico.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="280" x="599" y="-64"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.ipartek.formacion.nidea.ejemplos.Ejercicio_ObjetosGraficos.Circulo" 
+    project="nidea" 
+    file="/nidea/src/main/java/com/ipartek/formacion/nidea/ejemplos/Ejercicio_ObjetosGraficos/Circulo.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="280" x="439" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.ipartek.formacion.nidea.ejemplos.Ejercicio_ObjetosGraficos.CirculoColoreado" 
+    project="nidea" 
+    file="/nidea/src/main/java/com/ipartek/formacion/nidea/ejemplos/Ejercicio_ObjetosGraficos/CirculoColoreado.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="280" x="439" y="286"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="5" language="java" name="com.ipartek.formacion.nidea.ejemplos.Ejercicio_ObjetosGraficos.Imprimible" 
+    project="nidea" 
+    file="/nidea/src/main/java/com/ipartek/formacion/nidea/ejemplos/Ejercicio_ObjetosGraficos/Imprimible.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="280" x="759" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="6" language="java" name="com.ipartek.formacion.nidea.ejemplos.Ejercicio_ObjetosGraficos.Triangulo" 
+    project="nidea" 
+    file="/nidea/src/main/java/com/ipartek/formacion/nidea/ejemplos/Ejercicio_ObjetosGraficos/Triangulo.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="280" x="1079" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="7">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <realization id="8">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <generalization id="9">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="10">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="11">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

@@ -35,6 +35,10 @@ public abstract class Vehiculos {
 
 	}
 
+	protected static void dimeMatricula() {
+		// Metodo tonto para probar matricula
+	}
+
 	@Override
 	public String toString() {
 		return "Vehiculos [puertas=" + puertas + ", color=" + color + "]";

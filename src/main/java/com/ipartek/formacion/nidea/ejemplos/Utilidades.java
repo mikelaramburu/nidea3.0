@@ -7,7 +7,7 @@ public class Utilidades {
 	 * 
 	 * Limpia los caracteres vacios " " de una cadena String.<br>
 	 * Hacemos trim, ademas de sustituir todos los espacios en blanco innecesarios
-	 * por uno unico. Jorjito crack! <br>
+	 * por uno unico. <br>
 	 * ejem.: " hola que hase " => "hola que hace"
 	 * 
 	 * @param cadena
@@ -15,8 +15,12 @@ public class Utilidades {
 	 */
 
 	public static String limpiarEspacios(String cadena) {
-
-		return "";
+		String resul = "";
+		if (cadena != null) {
+			resul = cadena.trim();
+			resul = resul.replaceAll("\\s+", " ");
+		}
+		return resul;
 	}
 
 }
