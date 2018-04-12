@@ -1,6 +1,6 @@
 package com.ipartek.formacion.nidea.ejemplos;
 
-public abstract class Vehiculos {
+public abstract class Vehiculos implements Ordenable {
 
 	private int puertas;
 	private String color;

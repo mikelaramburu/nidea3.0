@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 public abstract class ObjetoGrafico implements Imprimible, Cloneable, Serializable {
 
-	private int x, y;
+	private int x;
+	private int y;
 
-	private void mover(int X, int Y) {
-
+	public void mover(int x, int y) {
 		this.x = x;
 		this.y = y;
-
 	}
 
 	abstract void dibujar();
+
 }

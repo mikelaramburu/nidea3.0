@@ -2,18 +2,24 @@ package com.ipartek.formacion.nidea.ejemplos;
 
 public class VehiculoElectrico extends Vehiculos {
 
-	private float potencia; // kW
+	private float potencia; // kw
 
 	public VehiculoElectrico() {
 		super();
-		potencia = 0;
-		System.out.println("Instanciado VehiculoElectrico");
-		// TODO Auto-generated constructor stub
+		this.potencia = 0;
+		System.out.println("instanciado VehiculoElectrico");
 	}
 
 	public VehiculoElectrico(float potencia) {
-		this(); // Al sobrecargar cambiar el super por el this
+		this(); // cambiar super() => this()
 		this.potencia = potencia;
+	}
+
+	@Override
+	public void arrancar() {
+		// super.arrancar();
+		System.out.println("pulsar boton encendido");
+		Vehiculos.dimeMatricula();
 	}
 
 	public float getPotencia() {
@@ -25,14 +31,14 @@ public class VehiculoElectrico extends Vehiculos {
 	}
 
 	@Override
-	public void arrancar() {
-		// TODO Auto-generated method stub
-		System.out.println("pulsar boton de encencido");
+	public String toString() {
+		return super.toString() + " VehiculoElectrico [potencia=" + potencia + "]";
 	}
 
 	@Override
-	public String toString() {
-		return super.toString() + "VehiculoElectrico [potencia=" + potencia + "]";
+	public int getValor() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

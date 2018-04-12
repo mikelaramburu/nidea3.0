@@ -7,12 +7,14 @@ public class CirculoColoreado extends Circulo {
 	public CirculoColoreado() {
 		super();
 		this.color = "blanco";
+
+		System.out.println(Imprimible.BRAILLE);
 	}
 
 	@Override
 	void dibujar() {
-		// TODO Auto-generated method stub
 		super.dibujar();
+
 	}
 
 }

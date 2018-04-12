@@ -7,10 +7,10 @@
       <nav class="my-2 my-md-0 mr-md-10">
         <a class="p-2 text-dark" href="generar-mesa">Mesa</a>
         <a class="p-2 text-dark" href="materiales">Materiales</a>          
-        <a class="p-2 text-dark" href="calculadora">Calculadora</a>     
-      </nav>
-      
-      
+        <a class="p-2 text-dark" href="calculadora">Calculadora</a>   
+        <a class="btn btn-outline-danger" href="LoginUser">LoginUser</a>  
+      </nav>     
+               
       
       <c:if test="${empty usuario}">
       	<a class="btn btn-outline-primary" href="login">Login</a>
@@ -23,7 +23,6 @@
       	   	<a class="btn btn-outline-danger" href="logout">Logout</a>
       	</nav>   	
       </c:if>
-
      
     </div>
     

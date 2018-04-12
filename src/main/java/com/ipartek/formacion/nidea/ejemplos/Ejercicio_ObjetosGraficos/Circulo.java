@@ -1,6 +1,8 @@
 package com.ipartek.formacion.nidea.ejemplos.Ejercicio_ObjetosGraficos;
 
-public class Circulo extends ObjetoGrafico {
+import com.ipartek.formacion.nidea.ejemplos.Ordenable;
+
+public class Circulo extends ObjetoGrafico implements Ordenable {
 	private int radio;
 
 	public Circulo() {
@@ -8,15 +10,29 @@ public class Circulo extends ObjetoGrafico {
 		this.radio = 0;
 	}
 
+	public int getRadio() {
+		return radio;
+	}
+
+	public void setRadio(int radio) {
+		this.radio = radio;
+	}
+
 	@Override
 	public void imprimir() {
-		System.out.println("Metodo imprimir");
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	void dibujar() {
-		System.out.println("Metodo dibujar");
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public int getValor() {
+		return this.radio;
 	}
 
 }
