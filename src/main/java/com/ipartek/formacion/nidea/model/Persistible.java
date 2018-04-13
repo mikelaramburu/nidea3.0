@@ -52,6 +52,4 @@ public interface Persistible<P> {
 	 */
 	public P mapper(ResultSet rs) throws SQLException;
 
-	boolean busqueda(String nombre);
-
 }
