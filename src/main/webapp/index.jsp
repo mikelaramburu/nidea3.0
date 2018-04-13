@@ -7,6 +7,12 @@
 	// varias sentencias 
 	String nombre = "pepe";
 	String hora = "10:78";
+	
+	
+	//Lanza adrede un NullPointerException y nos mostrara la pagina error.jsp
+	//Hemos configurado este comportamiento en error.jsp
+	String nulo = null;
+	nulo.length();
 
 %>
 
